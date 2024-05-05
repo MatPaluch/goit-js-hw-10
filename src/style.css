@@ -1,6 +1,9 @@
 body {
   font-family: 'Roboto';
 }
+.breed-select {
+  max-width: 300px;
+}
 .cat-info {
   display: flex;
   align-items: flex-start;

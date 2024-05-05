@@ -1,6 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 axios.defaults.headers.common['x-api-key'] =
   'live_CwaIIxBdqKE3kTBR5jpoCFIvIMed5Q5zMwjbk887cxWMpmm5TAi6AO9GfG0bW3IL';
@@ -26,11 +28,13 @@ fetchBreeds()
 
     const arrayCats = JSON.parse(result);
 
-    arrayCats.map(obj => {
-      const option = document.createElement('option');
-      option.value = obj.id;
-      option.textContent = obj.name;
-      breedOptions.insertAdjacentElement('beforeend', option);
+    const newArray = arrayCats.map(obj => {
+      return { value: obj.id, text: obj.name };
+    });
+
+    new SlimSelect({
+      select: '#single',
+      data: newArray,
     });
   })
   .catch(error => {
