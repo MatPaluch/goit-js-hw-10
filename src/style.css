@@ -2,12 +2,21 @@ body {
   font-family: 'Roboto';
 }
 .breed-select {
-  max-width: 300px;
+  max-width: 320px;
 }
+
 .cat-info {
   display: flex;
   align-items: flex-start;
 }
+.div_img {
+  min-width: 320px;
+  width: 320px;
+}
+img {
+  width: 100%;
+}
+
 .loader_circle {
   position: absolute;
   left: 45vw;
@@ -20,6 +29,11 @@ body {
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+}
+@media (max-width: 640px) {
+  .cat-info {
+    flex-wrap: wrap;
+  }
 }
 
 @keyframes rotation {

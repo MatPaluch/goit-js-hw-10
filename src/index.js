@@ -58,12 +58,15 @@ breedOptions.addEventListener('change', ev => {
       circleLoader.remove();
       const catData = JSON.parse(data);
 
+      const divImg = document.createElement('div');
+      divImg.classList.add('div_img');
+      catInfo.insertAdjacentElement('beforeend', divImg);
+
       const catImg = document.createElement('img');
       catImg.src = catData[0].url;
-      catImg.width = '320';
       catImg.style.marginTop = '20px';
 
-      catInfo.insertAdjacentElement('beforeend', catImg);
+      divImg.insertAdjacentElement('beforeend', catImg);
 
       const textCat = document.createElement('div');
       textCat.style.paddingLeft = '20px';
